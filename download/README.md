@@ -1,0 +1,1 @@
+In this folder the downloadable files will be placed. Make sure that this folder is writable for the webserver.

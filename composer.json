@@ -1,0 +1,24 @@
+{
+    "name": "michaelbelgium/youtube-to-mp3",
+    "description": "Convert and search youtube video's via your own API",
+    "type": "project",
+    "require": {
+        "norkunas/youtube-dl-php": "dev-master",
+        "google/apiclient": "^2.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael V.",
+            "email": "michael@michaelbelgium.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MichaelBelgium\\YoutubeConverter\\": "src/"
+        }
+    },
+    "config": {
+        "disable-tls": false
+    }
+}
