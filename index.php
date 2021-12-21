@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youtube to MP3</title>
-    
+    <title>Croherze converter</title>
+    <link href="favicon.png" rel="icon">
     <?php include 'includes/styles.php'; ?>
 </head>
-<body>
+<body style="background: url(https://croherze.com/forum/images/styles/DarkCore/style_orange/pageBG.png) repeat bottom left; margin:1vh 2vw;">
     <div class="container-fluid">
         <?php include 'includes/nav.php'; ?>
 
         <div class="row">
             <div class="col-lg-6">
-                <div class="card">
+                <div class="card bg-dark text-white">
                     <div class="card-header">
                         <h5 class="card-title">Convert</h5>
                     </div>
@@ -21,29 +24,29 @@
                         <form action="convert.php" method="get" id="frm-convert">
                             <div class="form-floating mb-3">
                                 <input type="text" name="youtubelink" class="form-control" id="link" required placeholder="youtube.com" />
-                                <label for="link">Youtube url</label>
+                                <label class="text-secondary" for="link">Youtube url</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <select class="form-control" name="format" id="format">
                                     <option value="mp3">Audio (mp3)</option>
                                     <option value="mp4">Video (mp4)</option>
                                 </select>
-                                <label for="format">Format</label>
+                                <label class="text-secondary" for="format">Format</label>
                             </div>
                             <button type="submit" class="btn btn-outline-primary"><i class="fas fa-sync-alt"></i> Convert</button>
                         </form>
                     </div>
                 </div>
 
-                <div class="card mt-3" id="convert-response">
+                <div class="card mt-3 bg-dark text-white" id="convert-response">
                     <div class="card-header">
                         <h5 class="card-title">Json response</h5>
                     </div>
-                    <div class="card-body">
+                    <!--<div class="card-body">
                         <pre>{}</pre>
-                    </div>
+                    </div>-->
                     <div class="card-footer">
-                        <table class="table table-borderless table-sm w-auto">
+                        <table class="table table-borderless table-sm w-auto text-white">
                             <tbody>
                                 <tr>
                                     <td>Error:</td>
@@ -83,7 +86,7 @@
             </div>
 
             <div class="col-lg-6">
-                <div class="card">
+                <div class="card bg-dark text-white">
                     <div class="card-header">
                         <h5 class="card-title">Search</h5>
                     </div>
@@ -91,28 +94,28 @@
                         <form action="search.php" method="get" id="frm-search">
                             <div class="form-floating mb-3">
                                 <input type="text" name="q" class="form-control" id="q" required placeholder="search term" />
-                                <label for="q">Search term</label>
+                                <label class="text-secondary" for="q">Search term</label>
                             </div>
 
                             <div class="form-floating mb-3">
                                 <input type="number" name="max_results" id="max_results" class="form-control" value="10" placeholder="number">
-                                <label for="max_results">Maximum results</label>
+                                <label class="text-secondary" for="max_results">Maximum results</label>
                             </div>
-                            
+
                             <button type="submit" class="btn btn-outline-primary"><i class="fas fa-search"></i> Search</button>
                         </form>
                     </div>
                 </div>
 
-                <div class="card mt-3" id="search-response">
+                <div class="card mt-3 bg-dark text-white" id="search-response">
                     <div class="card-header">
                         <h5 class="card-title">Json response</h5>
                     </div>
-                    <div class="card-body">
+                    <!--<div class="card-body">
                         <pre>{}</pre>
-                    </div>
+                    </div>-->
                     <div class="card-footer">
-                        <table class="table table-borderless table-sm w-auto">
+                        <table class="table table-borderless table-sm w-auto text-white">
                             <tbody>
                                 <tr>
                                     <td>Error:</td>

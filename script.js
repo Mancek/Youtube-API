@@ -1,6 +1,9 @@
 $(document).ready(function() {
+    $('#convert-response').hide();
+    $('#search-response').hide();
     $("#frm-convert").submit(function(e) {
         $("#frm-convert button[type=submit]").html("<i class=\"fas fa-spin fa-sync-alt\"></i> Converting... Please wait");
+        $('#convert-response').show();
 
         e.preventDefault();
         $.get($(this).attr("action"), { youtubelink: $('#link').val(), format: $('#format').val() },  function(data) {
@@ -14,7 +17,7 @@ $(document).ready(function() {
                 $("#convert-response table tr:eq(3) td:last").text(0);
                 $("#convert-response table tr:eq(4) td:last").text("-");
                 $("#convert-response table tr:eq(5) td:last").text("-");
-                
+
                 $("#download").attr("href", "#").addClass("disabled");
                 $("#remove").addClass("disabled");
             } else {
@@ -39,6 +42,7 @@ $(document).ready(function() {
 
     $('#frm-search').submit(function (e) {
         e.preventDefault();
+        $('#search-response').show();
 
         $.get($(this).attr('action'), { q: $('#q').val(), max_results: $('#max_results').val() }, function (data) {
 
