@@ -39,5 +39,5 @@ class Config
      *
      * Note: required for searching on youtube
      */
-    const API_KEY = "AIzaSyBjPOYZt0rEGlkA-BDeTqGW7X3COofc1SA";
+    const API_KEY = "123";
 }
