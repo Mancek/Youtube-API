@@ -165,7 +165,7 @@ class YoutubeDl
                 if (isset($parsedRow['fileName'])) {
                     $metadata['_filename'] = $parsedRow['fileName'];
                 }
-                $metadata['file'] = new SplFileInfo($metadata['_filename']);
+                $metadata['file'] = new SplFileInfo($metadata['id']);
                 $metadata['metadataFile'] = new SplFileInfo($metadataFile);
 
                 $videos[] = new Video($metadata);

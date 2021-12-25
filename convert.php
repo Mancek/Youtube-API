@@ -32,9 +32,10 @@ if(isset($_GET["youtubelink"]) && !empty($_GET["youtubelink"]))
         $dl->setBinPath(Config::YOUTUBEDL_BIN_PATH);
         $options = Options::create()
             ->downloadPath(Config::DOWNLOAD_FOLDER)
-            ->url($youtubelink);
+            ->url($youtubelink)
+            ->skipDownload(true);
 
-        try	{
+        try     {
             $collection = $dl->download($options);
 
             foreach ($collection->getVideos() as $video) {
@@ -79,18 +80,18 @@ if(isset($_GET["youtubelink"]) && !empty($_GET["youtubelink"]))
 
     try
     {
-        $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF'])."/".Config::DOWNLOAD_FOLDER;
+
+        $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
         if($exists)
-            $file = $url.$id.".".$format;
+            $file = $url ."download/".$id.".".$format;
         else
         {
             $collection = $dl->download($options);
-            foreach ($collection->getVideos() as $vide) {
-                $video = $vide;
-                $file = $url.$vide->getFilename();
+            foreach ($collection->getVideos() as $v) {
+                $video = $v;
+                $file = $url."download/".$id.".".$format;
             }
         }
-
         $json = json_encode(array(
             "error" => false,
             "youtube_id" => $video->getId(),
