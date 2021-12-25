@@ -80,18 +80,21 @@ if(isset($_GET["youtubelink"]) && !empty($_GET["youtubelink"]))
             $file = $url.$id.".".$format;
         else
         {
-            $video = $dl->download($options);
-            $file = $url.$video->getVideos()[0]->getFilename();
+            $collection = $dl->download($options);
+            foreach ($collection->getVideos() as $vide) {
+                $video = $vide;
+                $file = $url.$vide->getFilename();
+            }
         }
 
         $json = json_encode(array(
             "error" => false,
-            "youtube_id" => $video->getVideos()[0]->getId(),
-            "title" => $video->getVideos()[0]->getTitle(),
-            "alt_title" => $video->getVideos()[0]->getAltTitle(),
-            "duration" => $video->getVideos()[0]->getDuration(),
+            "youtube_id" => $video->getId(),
+            "title" => $video->getTitle(),
+            "alt_title" => $video->getAltTitle(),
+            "duration" => $video->getDuration(),
             "file" => $file,
-            "uploaded_at" => $video->getVideos()[0]->getUploadDate()
+            "uploaded_at" => $video->getUploadDate()
         ));
 
         if(Config::LOG)
