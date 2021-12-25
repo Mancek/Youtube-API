@@ -29,16 +29,21 @@ if(isset($_GET["youtubelink"]) && !empty($_GET["youtubelink"]))
 	if(Config::DOWNLOAD_MAX_LENGTH > 0 || $exists)
 	{
 		$dl = new YoutubeDl();
-		$options = Options::create()
-			->skipDownload(true)
-			->downloadPath(Config::DOWNLOAD_FOLDER)
-			->url($youtubelink);
+        $dl->setBinPath(Config::YOUTUBEDL_BIN_PATH);
+        $options = Options::create()
+            ->downloadPath(Config::DOWNLOAD_FOLDER)
+            ->url($youtubelink);
 		
 		try	{
-			$video = $dl->download($options);
-	
-			if($video->getVideos()[0]->getDuration() > Config::DOWNLOAD_MAX_LENGTH && Config::DOWNLOAD_MAX_LENGTH > 0)
-				throw new Exception("The duration of the video is {$video->getVideos()[0]->getDuration()} seconds while max video length is ".Config::DOWNLOAD_MAX_LENGTH." seconds.");
+			$collection = $dl->download($options);
+
+            foreach ($collection->getVideos() as $video) {
+                if ($video->getDuration() !== null) {
+                    throw new Exception("Error downloading video: {$video->getError()}.");
+                } elseif ($video->getDuration() > Config::DOWNLOAD_MAX_LENGTH && Config::DOWNLOAD_MAX_LENGTH > 0) {
+                    throw new Exception("The duration of the video is {$video->getDuration()} seconds while max video length is " . Config::DOWNLOAD_MAX_LENGTH . " seconds.");
+                }
+            }
 		}
 		catch (Exception $ex)
 		{
@@ -65,6 +70,7 @@ if(isset($_GET["youtubelink"]) && !empty($_GET["youtubelink"]))
 		}
 
 		$dl = new YoutubeDl();
+		$dl->setBinPath(Config::YOUTUBEDL_BIN_PATH);
 		$options->downloadPath(Config::DOWNLOAD_FOLDER);
 		$options->url($youtubelink);
 	}

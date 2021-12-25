@@ -40,4 +40,6 @@ class Config
      * Note: required for searching on youtube
      */
     const API_KEY = "AIzaSyBjPOYZt0rEGlkA-BDeTqGW7X3COofc1SA";
+
+    const YOUTUBEDL_BIN_PATH = "C:\Users\Manuel\Desktop\youtube\lib\yt-dlp.exe";
 }
