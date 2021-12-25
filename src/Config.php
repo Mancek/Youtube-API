@@ -40,4 +40,6 @@ class Config
      * Note: required for searching on youtube
      */
     const API_KEY = "123";
+    
+    const YOUTUBEDL_BIN_PATH = "/usr/local/bin/youtube-dl";
 }
