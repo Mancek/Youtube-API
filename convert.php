@@ -35,7 +35,7 @@ if(isset($_GET["youtubelink"]) && !empty($_GET["youtubelink"]))
             ->url($youtubelink)
             ->skipDownload(true);
 
-        try     {
+        try {
             $collection = $dl->download($options);
 
             foreach ($collection->getVideos() as $video) {
@@ -81,15 +81,15 @@ if(isset($_GET["youtubelink"]) && !empty($_GET["youtubelink"]))
     try
     {
 
-        $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+        $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']) . 'download/';
         if($exists)
-            $file = $url ."download/".$id.".".$format;
+            $file = $url.$id.".".$format;
         else
         {
             $collection = $dl->download($options);
             foreach ($collection->getVideos() as $v) {
                 $video = $v;
-                $file = $url."download/".$id.".".$format;
+                $file = $url.$id.".".$format;
             }
         }
         $json = json_encode(array(
