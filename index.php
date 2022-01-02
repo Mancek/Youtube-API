@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
     <meta charset="UTF-8">
+    <title>Youtube converter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Croherze converter</title>
+    <meta name="robots" content="index,follow">
+    <meta name="keywords" content="croherze, convert, converter, music, mp3, mp4, youtube, download, samp, dj, free, online">
+    <meta name="description" content="Simple tool for converting and downloading mp3 and mp4 videos from youtube. No additional fees, no registration, always free.">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y46BZ9KN1T"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Y46BZ9KN1T');
+    </script>
+
     <link href="favicon.png" rel="icon">
     <?php include 'includes/styles.php'; ?>
 </head>
-<body style="background: url(https://croherze.com/forum/images/styles/DarkCore/style_orange/pageBG.png) repeat bottom left; margin:1vh 2vw;">
-    <div class="container-fluid">
+<body class="pb-5" style="background: url(https://croherze.com/forum/images/styles/DarkCore/style_orange/pageBG.png) repeat bottom left; margin:1vh 2vw;">
+    <div class="container-fluid ">
         <?php include 'includes/nav.php'; ?>
 
         <div class="row">
@@ -136,6 +146,12 @@
             </div>
         </div>
     </div>
+    <footer class="bg-dark text-center text-sm-start fixed-bottom">
+        <div class="text-center p-2" style="background-color: rgba(0, 0, 0, 0.2);">
+            <a class="text-white" href="policy.php">Privacy Policy</a>
+            <a class="text-white" href="terms.php">Terms and conditions</a>
+        </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
